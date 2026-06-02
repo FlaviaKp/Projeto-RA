@@ -1,0 +1,39 @@
+<!-- 
+ CPF - cliente
+ Escolha do Procedimento
+ Escolha do Profissional
+ Data e Horario
+
+ botao de envio = /salvar_agendamento
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+</head>
+
+<body>
+    <div class="agendamento_horario">Agendamento</div>
+    <form action="/salvar_agendamento" method="POST">
+        <label>CPF do Cliente:</label><br>
+        <input type="" name="cpf_cliente" required><br><br>
+
+        <label>Procedimento</label><br>
+        <input type="tel" name="procedimento_escolhido" required> <br><br>
+
+        <label>Profissional</label><br>
+        <input type="text" name="profissional_escolhido" required><br><br>
+
+        <label>Data e Horário</label><br>
+        <iframe src="https://calendar.google.com/calendar/embed?src=flavia.ka%40hotmail.com&ctz=America%2FSao_Paulo" style="border: 0" width="300" height="300" frameborder="0" scrolling="no"></iframe> <br><br>
+
+        <button type="enviar">Confirmar Agendamento</button>
+    </form>
+    <hr>
+    <a href="/">Voltar ao Menu</a>
+</body>
+
+</html>
