@@ -11,7 +11,7 @@ def cadastro_profissional ():
 
     carlos.execute("""
     CREATE TABLE IF NOT EXISTS profissionais(
-                   cpf INTEGER PRIMARY KEY NOT NULL,
+                   cpf TEXT PRIMARY KEY NOT NULL,
                    nome TEXT NOT NULL,
                    area TEXT NOT NULL,
                    disponibilidade TEXT NOT NULL
