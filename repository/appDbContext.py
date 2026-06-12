@@ -33,7 +33,7 @@ def editar_clientes(cpf, nome, idade, problemas_saude):
         "problemas_saude": problemas_saude
     }
 
-    dados = {k: v for k, v in dados.items() if v != ""}
+    dados = {k: v for k, v in dados.items() if v != ""} #compreensão de dicionário k=chave v=valor
 
     campos = ", ".join(f"{k} = ?" for k in dados)
     valores = list(dados.values())
@@ -73,3 +73,31 @@ def listar_clientes():
     
     return
 
+def cadastrar_estq(nome, quantidade):
+    connection = sqlite3.connect("meu_banco.db")
+    carlos = connection.cursor()
+
+    carlos.execute("""
+    CREATE TABLE IF NOT EXISTS estoque(
+        nome TEXT PRIMARY KEY NOT NULL,
+        quantidade INTEGER NOT NULL
+    )
+    """)
+
+    carlos.execute(
+        "INSERT INTO estoque(nome, quantidade) VALUES (?,?)",
+        (nome, quantidade)
+    )
+
+    connection.commit()
+    connection.close()
+
+def listar_estq():
+    connection = sqlite3.connect("meu_banco.db")
+    carlos = connection.cursor()
+    
+    carlos.execute("SELECT nome, quantidade FROM estoque") 
+    estoque = carlos.fetchall()
+    
+    connection.close()
+    return estoque
